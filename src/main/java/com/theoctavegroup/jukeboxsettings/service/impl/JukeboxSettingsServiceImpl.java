@@ -1,6 +1,5 @@
 package com.theoctavegroup.jukeboxsettings.service.impl;
 
-import com.theoctavegroup.jukeboxsettings.dto.JukeboxComponentDTO;
 import com.theoctavegroup.jukeboxsettings.dto.JukeboxDTO;
 import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
 import com.theoctavegroup.jukeboxsettings.exceptions.ResourceNotFoundException;

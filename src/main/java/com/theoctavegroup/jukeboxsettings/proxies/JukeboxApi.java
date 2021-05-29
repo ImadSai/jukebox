@@ -33,20 +33,6 @@ public class JukeboxApi {
     /**
      * Get All Jukeboxes
      */
-    public List<JukeboxDTO> getAllJukeboxes() {
-        return jukeboxRestClient
-                .get()
-                .retrieve()
-                .onStatus(HttpStatus::isError, response -> Mono.error(new WebClientCustomException("Error Jukebox Service", response.statusCode())))
-                .bodyToFlux(JukeboxDTO.class)
-                .timeout(REQUEST_TIMEOUT)
-                .collectList()
-                .block();
-    }
-
-    /**
-     * Get All Jukeboxes
-     */
     public List<JukeboxDTO> getAllJukeboxesByModel(String model) {
 
         Optional<String> optionalModel = Optional.ofNullable(model).filter(s -> !s.isEmpty());

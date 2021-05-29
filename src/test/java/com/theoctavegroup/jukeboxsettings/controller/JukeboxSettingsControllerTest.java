@@ -11,8 +11,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -27,6 +25,9 @@ class JukeboxSettingsControllerTest {
     @MockBean
     JukeboxSettingsService jukeboxSettingsService;
 
+    /**
+     * Test getJukeboxesBySettings
+     */
     @Test
     void getJukeboxesBySettingsTest() throws Exception {
 
@@ -37,10 +38,11 @@ class JukeboxSettingsControllerTest {
                 .param("settingId", "1")
                 .param("model", "fusion")
                 .param("offset", "1")
-                .param("limit", "10")
-        )
+                .param("limit", "10"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.length()", is(this.createJukeboxes().size())));
+                .andExpect(jsonPath("$.length()", is(2)))
+                .andExpect(jsonPath("$[0].id", is("1")))
+                .andExpect(jsonPath("$[1].id", is("2")));
     }
 
     /**
