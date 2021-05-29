@@ -15,4 +15,10 @@ public interface JukeboxSettingsService {
      */
     List<JukeboxDTO> getJukeboxesBySettings(String settingId, String model);
 
+    /**
+     * Service to get all Jukeboxes By Model
+     * @return All the Jukeboxes
+     */
+    List<JukeboxDTO> getAllJukeboxesByModel(String model);
+
 }

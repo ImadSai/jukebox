@@ -30,7 +30,9 @@ public class SettingsServiceImpl implements SettingsService {
         this.settingsApi = settingsApi;
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public SettingPropertiesDTO getSettingById(String id) {
 

@@ -1,6 +1,6 @@
 package com.theoctavegroup.jukeboxsettings.proxies;
 
-import com.theoctavegroup.jukeboxsettings.dto.SettingDTO;
+import com.theoctavegroup.jukeboxsettings.dto.SettingWrapperDTO;
 import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
 import com.theoctavegroup.jukeboxsettings.exceptions.WebClientCustomException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,16 +35,15 @@ public class SettingsApi {
      * Get All Jukeboxes
      */
     public List<SettingPropertiesDTO> getAllSettings() {
-        SettingDTO setting = settingsRestClient
+        SettingWrapperDTO setting = settingsRestClient
                 .get()
                 .retrieve()
                 .onStatus(HttpStatus::isError, response -> Mono.error(new WebClientCustomException("Error Settings Service", response.statusCode())))
-                .bodyToMono(SettingDTO.class)
+                .bodyToMono(SettingWrapperDTO.class)
                 .timeout(REQUEST_TIMEOUT)
                 .block();
 
-        assert setting != null;
-        return setting.getSettings() == null ? Collections.emptyList() : setting.getSettings();
+        return (setting == null || setting.getSettings() == null) ? Collections.emptyList() : setting.getSettings();
     }
 
 

@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class SettingDTO {
+public class SettingWrapperDTO {
 
     /**
      * List of Setting properties

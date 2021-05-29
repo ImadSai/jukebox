@@ -11,6 +11,7 @@ import reactor.core.publisher.Mono;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Jukebox API
@@ -35,6 +36,24 @@ public class JukeboxApi {
     public List<JukeboxDTO> getAllJukeboxes() {
         return jukeboxRestClient
                 .get()
+                .retrieve()
+                .onStatus(HttpStatus::isError, response -> Mono.error(new WebClientCustomException("Error Jukebox Service", response.statusCode())))
+                .bodyToFlux(JukeboxDTO.class)
+                .timeout(REQUEST_TIMEOUT)
+                .collectList()
+                .block();
+    }
+
+    /**
+     * Get All Jukeboxes
+     */
+    public List<JukeboxDTO> getAllJukeboxesByModel(String model) {
+
+        Optional<String> optionalModel = Optional.ofNullable(model).filter(s -> !s.isEmpty());
+
+        return jukeboxRestClient
+                .get()
+                .uri(builder -> builder.path("/").queryParamIfPresent("model", optionalModel).build())
                 .retrieve()
                 .onStatus(HttpStatus::isError, response -> Mono.error(new WebClientCustomException("Error Jukebox Service", response.statusCode())))
                 .bodyToFlux(JukeboxDTO.class)
