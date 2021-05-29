@@ -7,7 +7,6 @@ import com.theoctavegroup.jukeboxsettings.service.SettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
@@ -36,17 +35,23 @@ public class SettingsServiceImpl implements SettingsService {
     @Override
     public SettingPropertiesDTO getSettingById(String id) {
 
-        SettingPropertiesDTO foundSetting = conSettingsMap.get(id);
+        SettingPropertiesDTO settingFound = conSettingsMap.get(id);
 
-        if(foundSetting == null) {
-            List<SettingPropertiesDTO> listSettingPropertiesDTO = this.settingsApi.getAllSettings();
-            conSettingsMap = listSettingPropertiesDTO.stream()
+        // If the ConcurrentHashMap Doesn't have the settings we are searching, we reload the Data
+        if(settingFound == null) {
+
+            // Reloading all the Settings
+            conSettingsMap = this.settingsApi.getAllSettings().stream()
                     .collect(Collectors.toMap(SettingPropertiesDTO::getId, Function.identity()));
-            foundSetting = conSettingsMap.get(id);
-            if (foundSetting == null) throw new ResourceNotFoundException("Setting Not Found");
+
+            // Get Settings by ID
+            settingFound = conSettingsMap.get(id);
+
+            // If we still don't find the Setting we throw a Resource Not Found Exception
+            if (settingFound == null) throw new ResourceNotFoundException("Setting Not Found");
         }
 
-        return foundSetting;
+        return settingFound;
     }
 
 }

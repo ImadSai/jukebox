@@ -26,11 +26,18 @@ public class JukeboxSettingsController {
 
     /**
      * Endpoint to get all Jukeboxes that fit the SettingId and Model
+     * @param model : filter by model name
+     * @param offset : specifies at what index start the page
+     * @param limit : specifies the page size
      * @return All the Jukeboxes
      */
     @GetMapping(value = "/getJukeboxes")
-    public List<JukeboxDTO> getJukeboxesBySettings(@RequestParam(name = "settingId") String settingId, @RequestParam(name = "model", required = false) String model) {
-        return this.jukeboxSettingsService.getJukeboxesBySettings(settingId, model);
+    public List<JukeboxDTO> getJukeboxesBySettings(
+            @RequestParam(name = "settingId") String settingId,
+            @RequestParam(name = "model", required = false) String model,
+            @RequestParam(name = "offset", required = false) Integer offset,
+            @RequestParam(name = "limit", required = false) Integer limit ) {
+        return this.jukeboxSettingsService.getJukeboxesBySettings(settingId, model, offset, limit);
     }
 
 }
