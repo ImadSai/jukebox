@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.reactive.function.client.WebClientRequestException;
 
 import java.util.Date;
 
@@ -17,7 +18,7 @@ public class GlobalExceptionHandler {
     // Handle specific exception
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<Object> resourceNotFoundHandling(ResourceNotFoundException exception, WebRequest request) {
-        ErrorDetails errorDetails =
+        var errorDetails =
                 new ErrorDetails(new Date(), exception.getMessage());
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
@@ -27,8 +28,18 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(WebClientCustomException.class)
     public ResponseEntity<Object> handleWebClientCustomException(WebClientCustomException exception, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage());
+        var errorDetails = new ErrorDetails(new Date(), exception.getMessage());
         return new ResponseEntity<>(errorDetails, exception.getStatus());
+    }
+
+    /**
+     * Handle WebClient Request exception
+     */
+    @ExceptionHandler(WebClientRequestException.class)
+    public ResponseEntity<Object> handleWebClientRequestException(WebClientRequestException exception, WebRequest request) {
+        String message = "Error : (" + exception.getMethod() + ") " + exception.getUri() + " unreached !";
+        var errorDetails = new ErrorDetails(new Date(), message);
+        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     /**
@@ -36,7 +47,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> globalExceptionHandling(Exception exception, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage());
+        var errorDetails = new ErrorDetails(new Date(), exception.getMessage());
         return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
