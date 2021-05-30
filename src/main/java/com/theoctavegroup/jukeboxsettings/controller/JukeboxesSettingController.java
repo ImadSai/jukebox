@@ -41,10 +41,10 @@ public class JukeboxesSettingController {
     @ApiOperation(value = "Endpoint to get all Jukeboxes that fit the SettingId and Model")
     @GetMapping(value = "/getJukeboxes")
     public List<JukeboxDTO> getJukeboxesBySettings(
-            @ApiParam(value = "setting id", required = true, example = "515ef38b-0529-418f-a93a-7f2347fc5805") @RequestParam(name = "settingId") String settingId,
-            @ApiParam(value = "filter by model name", example = "virtuo") @RequestParam(name = "model", required = false) String model,
-            @ApiParam(value = "specifies at what index start the page (Starts from 0)", example = "0") @RequestParam(name = "offset", required = false) Integer offset,
-            @ApiParam(value = "specifies the page size", example = "10") @RequestParam(name = "limit", required = false) Integer limit) {
+            @ApiParam(value = "Setting id", required = true, example = "515ef38b-0529-418f-a93a-7f2347fc5805") @RequestParam(name = "settingId") String settingId,
+            @ApiParam(value = "Filter by model name", example = "virtuo") @RequestParam(name = "model", required = false) String model,
+            @ApiParam(value = "Specifies at what index start the page (Starts from 0)", example = "0") @RequestParam(name = "offset", required = false) Integer offset,
+            @ApiParam(value = "Specifies the page size", example = "10") @RequestParam(name = "limit", required = false) Integer limit) {
 
         return this.jukeboxSettingsService.getJukeboxesBySettings(settingId, model, offset, limit);
     }

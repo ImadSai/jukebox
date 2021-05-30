@@ -13,23 +13,19 @@ know. [Contact me](mailto:imad.salki@hotmail.fr?subject=[GitHub]%20Jukebox%20Ser
 
     1. ### Install
 
-      mvn install
-
+      mvn clean install
+    
     2. ### Run the app
 
       java -jar target/juckboxSettings-*.jar
 
-    * ### Run the tests
-
-      mvn test
-
-      🕵️ _When you run the tests, you can find the reports (Test Coverage...) in `target/site/jacoco`_
+  🕵️ _When you run the tests, you can find the reports (Test Coverage...) in `target/site/jacoco`_
 
 * ### 🐳 __Docker version :__
 
     1. ### Build the Image
 
-      mvn clean && docker build -t theoctavegroup/jukeboxsetting:latest .
+      mvn clean install && docker build -t theoctavegroup/jukeboxsetting:latest .
 
     2. ### Deploy the container and expose it on port 8080
 
@@ -38,6 +34,16 @@ know. [Contact me](mailto:imad.salki@hotmail.fr?subject=[GitHub]%20Jukebox%20Ser
 # REST API ⚙️
 
 The jukeboxSettings REST API described below.
+
+## Get Application API Docs ( Swagger ) 📖
+
+UI version :
+
+`http://localhost:8080/swagger-ui.html`
+
+Json format :
+
+`http://localhost:8080/v2/api-docs`
 
 ## Get list of Jukebox supported by setting and filtered by Model
 
@@ -76,13 +82,3 @@ The jukeboxSettings REST API described below.
     {
         "status": "UP"
     }
-
-## Get Application API Docs ( Swagger ) 📖
-
-UI version :
-
-`http://localhost:8080/swagger-ui.html`
-
-Json format :
-
-`http://localhost:8080/v2/api-docs`
