@@ -23,7 +23,7 @@ public class SettingsServiceImpl implements SettingsService {
     SettingsApi settingsApi;
 
     // Cache duration
-    public static final int CACHE_DURATION_MINUTE = 1;
+    public static final int CACHE_DURATION_MINUTE = 10;
 
     // Settings Concurrent HashMap
     Map<String, SettingPropertiesDTO> settingsCache = new ConcurrentHashMap<>();
