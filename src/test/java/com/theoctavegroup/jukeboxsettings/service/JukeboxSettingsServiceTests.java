@@ -1,10 +1,10 @@
 package com.theoctavegroup.jukeboxsettings.service;
 
+import com.theoctavegroup.jukeboxsettings.api.JukeboxApi;
 import com.theoctavegroup.jukeboxsettings.dto.JukeboxComponentDTO;
 import com.theoctavegroup.jukeboxsettings.dto.JukeboxDTO;
 import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
 import com.theoctavegroup.jukeboxsettings.exceptions.ResourceNotFoundException;
-import com.theoctavegroup.jukeboxsettings.api.JukeboxApi;
 import com.theoctavegroup.jukeboxsettings.service.impl.JukeboxSettingsServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,7 +40,7 @@ class JukeboxSettingsServiceTests {
         SettingPropertiesDTO setting = new SettingPropertiesDTO("1", List.of("amplifier"));
         when(this.settingsService.getSettingById(any(String.class))).thenReturn(setting);
 
-        List<JukeboxDTO> result = this.jukeboxSettingsService.getJukeboxesBySettings("1", "", 1, 10);
+        List<JukeboxDTO> result = this.jukeboxSettingsService.getJukeboxesBySettings("1", "", 0, 10);
 
         assertNotNull(result);
         assertEquals(1, result.size());
@@ -117,6 +117,7 @@ class JukeboxSettingsServiceTests {
 
     /**
      * Create Jukeboxes
+     *
      * @return Jukeboxes List
      */
     private List<JukeboxDTO> createJukeboxes() {
