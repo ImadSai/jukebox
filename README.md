@@ -3,31 +3,51 @@
 Web application to remote control Jukebox settings.  
 Depending on what components (hardware modules) a jukebox has, it may or may not support a setting.
 
-## Install
+📎 You can find an online version [Here](http://myitworld.fr//swagger-ui.html)  
+(Please if the service is down let me
+know. [Contact me](mailto:imad.salki@hotmail.fr?subject=[GitHub]%20Jukebox%20Service) ✉️ )
 
-    mvn install
+# Launch the App 🎉
 
-## Run the app
+* ### 💻 __Local version__ :
 
-    java -jar target/juckboxSettings-*.jar com.theoctavegroup.jukeboxsettings.JukeboxSettingsApplication
+    1. ### Install
 
-## Run the tests
+      mvn install
 
-    mvn test
+    2. ### Run the app
 
-# REST API
+      java -jar target/juckboxSettings-*.jar
+
+    * ### Run the tests
+
+      mvn test
+
+      🕵️ _When you run the tests, you can find the reports (Test Coverage...) in `target/site/jacoco`_
+
+* ### 🐳 __Docker version :__
+
+    1. ### Build the Image
+
+      mvn clean && docker build -t theoctavegroup/jukeboxsetting:latest .
+
+    2. ### Deploy the container and expose it on port 8080
+
+      docker run -d --name jukeboxsetting -p 8080:8080 theoctavegroup/jukeboxsetting
+
+# REST API ⚙️
 
 The jukeboxSettings REST API described below.
 
 ## Get list of Jukebox supported by setting and filtered by Model
 
-### Request
+### Request ⬆️
 
 `GET /getJukeboxes`
 
     curl -i -H 'Accept: application/json' -d 'settingId=Foo' http://localhost:8080/getJukeboxes
 
-### Response
+### Response ⬇️
 
     HTTP/1.1 200 OK
     Date: Sun, 30 May 2021 04:44:55 GMT
@@ -39,13 +59,13 @@ The jukeboxSettings REST API described below.
 
 ## Get Application Health and Information
 
-### Request
+### Request ⬆️
 
 `GET /actuator`
 
     curl -i -H 'Accept: application/json' http://localhost:8080/actuator/health
 
-### Response
+### Response ⬇️
 
     HTTP/1.1 200 OK
     Date: Sun, 30 May 2021 04:44:55 GMT
@@ -57,9 +77,7 @@ The jukeboxSettings REST API described below.
         "status": "UP"
     }
 
-## Get Application API Docs ( Swagger )
-
-### Request
+## Get Application API Docs ( Swagger ) 📖
 
 UI version :
 

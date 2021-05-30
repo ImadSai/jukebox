@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>com.theoctavegroup</groupId>
-    <artifactId>juckboxSettings</artifactId>
+    <artifactId>jukeboxSettings</artifactId>
     <version>1.0.0</version>
     <name>jukeboxSettings</name>
 
