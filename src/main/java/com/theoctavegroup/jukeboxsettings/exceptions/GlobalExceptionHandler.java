@@ -14,21 +14,21 @@ import java.util.Date;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    /**
-     * Handle WebClient exception
-     */
-    @ExceptionHandler(WebClientCustomException.class)
-    public ResponseEntity<Object> handleWebClientStatusException(WebClientCustomException exception, WebRequest request)  {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage());
-        return new ResponseEntity<>(errorDetails, exception.getStatus());
-    }
-
     // Handle specific exception
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<Object> resourceNotFoundHandling(ResourceNotFoundException exception, WebRequest request) {
         ErrorDetails errorDetails =
                 new ErrorDetails(new Date(), exception.getMessage());
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    /**
+     * Handle WebClient exception
+     */
+    @ExceptionHandler(WebClientCustomException.class)
+    public ResponseEntity<Object> handleWebClientCustomException(WebClientCustomException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage());
+        return new ResponseEntity<>(errorDetails, exception.getStatus());
     }
 
     /**

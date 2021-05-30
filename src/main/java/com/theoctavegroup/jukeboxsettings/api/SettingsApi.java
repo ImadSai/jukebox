@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 import java.time.Duration;
 import java.util.Collections;
@@ -21,7 +20,7 @@ import java.util.List;
 public class SettingsApi {
 
     // Timeout Duration
-    private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(4);
+    private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(3);
 
     // Jukebox Api Client
     private final WebClient settingsRestClient;
@@ -38,7 +37,9 @@ public class SettingsApi {
         SettingWrapperDTO setting = settingsRestClient
                 .get()
                 .retrieve()
-                .onStatus(HttpStatus::is5xxServerError, response -> Mono.error(new WebClientCustomException("Error Settings Service", response.statusCode())))
+                .onStatus((HttpStatus::isError), response -> {
+                    throw new WebClientCustomException("Error Settings Service", response.statusCode());
+                })
                 .bodyToMono(SettingWrapperDTO.class)
                 .timeout(REQUEST_TIMEOUT)
                 .block();
