@@ -1,7 +1,7 @@
-package com.theoctavegroup.jukeboxsettings.proxies;
+package com.theoctavegroup.jukeboxsettings.api;
 
-import com.theoctavegroup.jukeboxsettings.dto.SettingWrapperDTO;
 import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
+import com.theoctavegroup.jukeboxsettings.dto.SettingWrapperDTO;
 import com.theoctavegroup.jukeboxsettings.exceptions.WebClientCustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,7 +21,7 @@ import java.util.List;
 public class SettingsApi {
 
     // Timeout Duration
-    private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(3);
+    private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(4);
 
     // Jukebox Api Client
     private final WebClient settingsRestClient;
@@ -38,13 +38,11 @@ public class SettingsApi {
         SettingWrapperDTO setting = settingsRestClient
                 .get()
                 .retrieve()
-                .onStatus(HttpStatus::isError, response -> Mono.error(new WebClientCustomException("Error Settings Service", response.statusCode())))
+                .onStatus(HttpStatus::is5xxServerError, response -> Mono.error(new WebClientCustomException("Error Settings Service", response.statusCode())))
                 .bodyToMono(SettingWrapperDTO.class)
                 .timeout(REQUEST_TIMEOUT)
                 .block();
 
         return (setting == null || setting.getSettings() == null) ? Collections.emptyList() : setting.getSettings();
     }
-
-
 }

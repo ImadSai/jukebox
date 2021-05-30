@@ -1,4 +1,4 @@
-package com.theoctavegroup.jukeboxsettings.proxies;
+package com.theoctavegroup.jukeboxsettings.api;
 
 import com.theoctavegroup.jukeboxsettings.dto.JukeboxDTO;
 import com.theoctavegroup.jukeboxsettings.exceptions.WebClientCustomException;
@@ -20,7 +20,7 @@ import java.util.Optional;
 public class JukeboxApi {
 
     // Timeout Duration
-    private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(3);
+    private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(4);
 
     // Jukebox Api Client
     private final WebClient jukeboxRestClient;
@@ -41,7 +41,7 @@ public class JukeboxApi {
                 .get()
                 .uri(builder -> builder.path("/").queryParamIfPresent("model", optionalModel).build())
                 .retrieve()
-                .onStatus(HttpStatus::isError, response -> Mono.error(new WebClientCustomException("Error Jukebox Service", response.statusCode())))
+                .onStatus(HttpStatus::is5xxServerError, response -> Mono.error(new WebClientCustomException("Error Jukebox Service", response.statusCode())))
                 .bodyToFlux(JukeboxDTO.class)
                 .timeout(REQUEST_TIMEOUT)
                 .collectList()

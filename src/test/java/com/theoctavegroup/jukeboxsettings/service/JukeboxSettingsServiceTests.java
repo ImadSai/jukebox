@@ -4,10 +4,8 @@ import com.theoctavegroup.jukeboxsettings.dto.JukeboxComponentDTO;
 import com.theoctavegroup.jukeboxsettings.dto.JukeboxDTO;
 import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
 import com.theoctavegroup.jukeboxsettings.exceptions.ResourceNotFoundException;
-import com.theoctavegroup.jukeboxsettings.proxies.JukeboxApi;
+import com.theoctavegroup.jukeboxsettings.api.JukeboxApi;
 import com.theoctavegroup.jukeboxsettings.service.impl.JukeboxSettingsServiceImpl;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -22,7 +20,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class JukeboxSettingsServiceTest {
+class JukeboxSettingsServiceTests {
 
     @InjectMocks
     JukeboxSettingsServiceImpl jukeboxSettingsService;

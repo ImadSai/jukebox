@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.hamcrest.CoreMatchers.is;
 
 @WebMvcTest(controllers = JukeboxSettingsController.class)
-class JukeboxSettingsControllerTest {
+class JukeboxSettingsControllerTests {
 
     @Autowired
     private MockMvc mockMvc;

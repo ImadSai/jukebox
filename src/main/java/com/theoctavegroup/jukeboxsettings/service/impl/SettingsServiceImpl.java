@@ -2,7 +2,7 @@ package com.theoctavegroup.jukeboxsettings.service.impl;
 
 import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
 import com.theoctavegroup.jukeboxsettings.exceptions.ResourceNotFoundException;
-import com.theoctavegroup.jukeboxsettings.proxies.SettingsApi;
+import com.theoctavegroup.jukeboxsettings.api.SettingsApi;
 import com.theoctavegroup.jukeboxsettings.service.SettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

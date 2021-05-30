@@ -2,7 +2,7 @@ package com.theoctavegroup.jukeboxsettings.service;
 
 import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
 import com.theoctavegroup.jukeboxsettings.exceptions.ResourceNotFoundException;
-import com.theoctavegroup.jukeboxsettings.proxies.SettingsApi;
+import com.theoctavegroup.jukeboxsettings.api.SettingsApi;
 import com.theoctavegroup.jukeboxsettings.service.impl.SettingsServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
