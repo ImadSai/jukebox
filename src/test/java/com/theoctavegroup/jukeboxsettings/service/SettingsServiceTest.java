@@ -1,8 +1,8 @@
 package com.theoctavegroup.jukeboxsettings.service;
 
-import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
-import com.theoctavegroup.jukeboxsettings.exceptions.ResourceNotFoundException;
 import com.theoctavegroup.jukeboxsettings.api.SettingsApi;
+import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
+import com.theoctavegroup.jukeboxsettings.exception.ResourceNotFoundException;
 import com.theoctavegroup.jukeboxsettings.service.impl.SettingsServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,11 +10,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
-
 import java.util.Collections;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class SettingsServiceTest {
@@ -59,6 +59,7 @@ class SettingsServiceTest {
 
     /**
      * Create Settings
+     *
      * @return Settings List
      */
     private List<SettingPropertiesDTO> createSettings() {

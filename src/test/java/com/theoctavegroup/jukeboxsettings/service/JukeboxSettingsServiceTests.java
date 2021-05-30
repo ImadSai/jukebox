@@ -4,7 +4,7 @@ import com.theoctavegroup.jukeboxsettings.api.JukeboxApi;
 import com.theoctavegroup.jukeboxsettings.dto.JukeboxComponentDTO;
 import com.theoctavegroup.jukeboxsettings.dto.JukeboxDTO;
 import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
-import com.theoctavegroup.jukeboxsettings.exceptions.ResourceNotFoundException;
+import com.theoctavegroup.jukeboxsettings.exception.ResourceNotFoundException;
 import com.theoctavegroup.jukeboxsettings.service.impl.JukeboxSettingsServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,11 +1,13 @@
 package com.theoctavegroup.jukeboxsettings.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * Jukebox Component Data Transfer Object
  */
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

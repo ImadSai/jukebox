@@ -1,13 +1,15 @@
 package com.theoctavegroup.jukeboxsettings.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 /**
  * Jukebox Data Transfer Object
  */
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

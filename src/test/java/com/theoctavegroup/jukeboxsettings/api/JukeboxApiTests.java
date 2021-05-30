@@ -1,7 +1,7 @@
 package com.theoctavegroup.jukeboxsettings.api;
 
 import com.theoctavegroup.jukeboxsettings.dto.JukeboxDTO;
-import com.theoctavegroup.jukeboxsettings.exceptions.WebClientCustomException;
+import com.theoctavegroup.jukeboxsettings.exception.WebClientCustomException;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.BeforeEach;

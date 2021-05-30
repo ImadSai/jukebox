@@ -1,4 +1,4 @@
-package com.theoctavegroup.jukeboxsettings.exceptions;
+package com.theoctavegroup.jukeboxsettings.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.theoctavegroup.jukeboxsettings.exceptions;
+package com.theoctavegroup.jukeboxsettings.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

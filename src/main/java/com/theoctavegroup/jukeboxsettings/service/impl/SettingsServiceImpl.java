@@ -1,8 +1,8 @@
 package com.theoctavegroup.jukeboxsettings.service.impl;
 
-import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
-import com.theoctavegroup.jukeboxsettings.exceptions.ResourceNotFoundException;
 import com.theoctavegroup.jukeboxsettings.api.SettingsApi;
+import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
+import com.theoctavegroup.jukeboxsettings.exception.ResourceNotFoundException;
 import com.theoctavegroup.jukeboxsettings.service.SettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,7 +38,7 @@ public class SettingsServiceImpl implements SettingsService {
         SettingPropertiesDTO settingFound = conSettingsMap.get(id);
 
         // If the ConcurrentHashMap Doesn't have the settings we are searching, we reload the Data
-        if(settingFound == null) {
+        if (settingFound == null) {
 
             // Reloading all the Settings
             conSettingsMap = this.settingsApi.getAllSettings().stream()

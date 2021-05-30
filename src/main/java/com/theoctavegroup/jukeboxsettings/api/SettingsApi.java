@@ -2,7 +2,7 @@ package com.theoctavegroup.jukeboxsettings.api;
 
 import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
 import com.theoctavegroup.jukeboxsettings.dto.SettingWrapperDTO;
-import com.theoctavegroup.jukeboxsettings.exceptions.WebClientCustomException;
+import com.theoctavegroup.jukeboxsettings.exception.WebClientCustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
