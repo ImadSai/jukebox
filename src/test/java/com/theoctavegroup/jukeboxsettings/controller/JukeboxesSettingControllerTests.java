@@ -11,13 +11,14 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.mockito.BDDMockito.given;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.CoreMatchers.is;
+import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(controllers = JukeboxSettingsController.class)
-class JukeboxSettingsControllerTests {
+@WebMvcTest(controllers = JukeboxesSettingController.class)
+class JukeboxesSettingControllerTests {
 
     @Autowired
     private MockMvc mockMvc;
@@ -47,6 +48,7 @@ class JukeboxSettingsControllerTests {
 
     /**
      * Create Jukeboxes
+     *
      * @return Jukeboxes List
      */
     private List<JukeboxDTO> createJukeboxes() {

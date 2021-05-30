@@ -13,7 +13,7 @@
 
     <groupId>com.theoctavegroup</groupId>
     <artifactId>juckboxSettings</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>jukeboxSettings</name>
 
     <description>Jukebox Settings Project : Allow us to get all Jukeboxes that fit parameters</description>
@@ -23,6 +23,8 @@
         <spring-cloud.version>2020.0.3-SNAPSHOT</spring-cloud.version>
         <mockwebserver.version>4.7.2</mockwebserver.version>
         <okhttp3.version>4.7.2</okhttp3.version>
+        <springfox.swagger.version>2.9.2</springfox.swagger.version>
+        <springfox.swaggerui.version>2.9.2</springfox.swaggerui.version>
     </properties>
 
     <dependencies>
@@ -50,6 +52,20 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <!-- Springfox Swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.swagger.version}</version>
+        </dependency>
+
+        <!-- Swagger UI -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.swaggerui.version}</version>
         </dependency>
 
         <!-- Starter Test -->

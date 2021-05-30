@@ -79,9 +79,6 @@ public class JukeboxSettingsServiceImpl implements JukeboxSettingsService {
             // If there are no Settings required
             if (setting.getRequires().isEmpty()) return true;
 
-            // If Jukebox have less number of components than Settings Required
-            if (jukebox.getComponents().size() < setting.getRequires().size()) return false;
-
             // Check for every Required Component
             for (var requiredComponent : setting.getRequires()) {
                 boolean requiredComponentPresent = jukebox.getComponents().stream().anyMatch(o -> o.getName().equals(requiredComponent));
