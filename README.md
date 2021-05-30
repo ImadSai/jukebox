@@ -47,7 +47,7 @@ Json format :
 
 `http://localhost:8080/v2/api-docs`
 
-## Get list of Jukebox supported by setting and filtered by Model
+## Get list of Jukebox supported by setting and filtered by Model 📜
 
 ### Request ⬆️
 
@@ -65,7 +65,7 @@ Json format :
 
     []
 
-## Get Application Health and Information
+## Get Application Health and Information 🩺
 
 ### Request ⬆️
 
