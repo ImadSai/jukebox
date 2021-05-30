@@ -1,5 +1,7 @@
 # Jukebox Settings API
 
+![Build Status](https://github.com/ImadSai/jukebox/actions/workflows/maven.yml/badge.svg?branch=main)
+
 Web application to remote control Jukebox settings.  
 Depending on what components (hardware modules) a jukebox has, it may or may not support a setting.
 
@@ -14,7 +16,7 @@ know. [Contact me](mailto:imad.salki@hotmail.fr?subject=[GitHub]%20Jukebox%20Ser
     1. ### Install
 
       mvn clean install
-    
+
     2. ### Run the app
 
       java -jar target/juckboxSettings-*.jar
@@ -51,7 +53,7 @@ Json format :
 
 `GET /getJukeboxes`
 
-    curl -i -H 'Accept: application/json' -d 'settingId=Foo' http://localhost:8080/getJukeboxes
+    curl -i -H 'Accept: application/json' -d 'settingId=Foo' http://localhost:8080/getJukeboxes?settingId=12345
 
 ### Response ⬇️
 
