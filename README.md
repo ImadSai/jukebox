@@ -5,7 +5,7 @@
 Web application to remote control Jukebox settings.  
 Depending on what components (hardware modules) a jukebox has, it may or may not support a setting.
 
-📎 You can find an online version [Here](http://myitworld.fr//swagger-ui.html)  
+📎 You can find an <u> **Online** </u> version [Here](http://myitworld.fr//swagger-ui.html) 🔥  (On-premises)
 (Please if you cannot reach the service, [Contact me](mailto:imad.salki@hotmail.fr?subject=[GitHub]%20Jukebox%20Service)
 ✉️ )
 
