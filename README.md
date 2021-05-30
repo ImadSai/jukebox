@@ -1,6 +1,6 @@
 # Jukebox Settings API
 
-![Build Status](https://github.com/ImadSai/jukebox/actions/workflows/maven.yml/badge.svg?branch=main)
+![Build Status](https://github.com/ImadSai/jukebox/actions/workflows/maven.yml/badge.svg?branch=main) ![version](https://img.shields.io/badge/version-1.0.0-blue)
 
 Web application to remote control Jukebox settings.  
 Depending on what components (hardware modules) a jukebox has, it may or may not support a setting.
