@@ -69,6 +69,12 @@
             <version>${springfox.swaggerui.version}</version>
         </dependency>
 
+        <!-- Cache -->
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+        </dependency>
+
         <!-- Starter Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

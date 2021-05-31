@@ -2,7 +2,6 @@ package com.theoctavegroup.jukeboxsettings.service;
 
 import com.theoctavegroup.jukeboxsettings.api.SettingsApi;
 import com.theoctavegroup.jukeboxsettings.dto.SettingPropertiesDTO;
-import com.theoctavegroup.jukeboxsettings.exception.ResourceNotFoundException;
 import com.theoctavegroup.jukeboxsettings.service.impl.SettingsServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,10 +9,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Collections;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,7 +31,7 @@ class SettingsServiceTest {
     @Test
     void getSettingByIdTest() {
 
-        when(settingsApi.getAllSettings()).thenReturn(this.createSettings());
+        when(settingsApi.getSettingsById(any(String.class))).thenReturn(this.createSetting());
 
         SettingPropertiesDTO result = this.settingsService.getSettingById("1");
         assertNotNull(result);
@@ -40,35 +40,13 @@ class SettingsServiceTest {
     }
 
     /**
-     * Test getSettingById Fail
-     */
-    @Test
-    void getSettingByIdFailTest() {
-
-        when(settingsApi.getAllSettings()).thenReturn(Collections.emptyList());
-
-        Exception exception = assertThrows(ResourceNotFoundException.class, () -> {
-            this.settingsService.getSettingById("1");
-        });
-
-        String expectedMessage = "Setting Not Found";
-        String actualMessage = exception.getMessage();
-
-        assertEquals(actualMessage, expectedMessage);
-    }
-
-    /**
      * Create Settings
      *
      * @return Settings List
      */
-    private List<SettingPropertiesDTO> createSettings() {
+    private SettingPropertiesDTO createSetting() {
 
-        SettingPropertiesDTO s1 = new SettingPropertiesDTO("1", List.of("camera", "speaker", "pcb"));
-        SettingPropertiesDTO s2 = new SettingPropertiesDTO("2", List.of("touchscreen", "money_pcb", "led_panel", "money_receiver"));
-        SettingPropertiesDTO s3 = new SettingPropertiesDTO("3", List.of("touchscreen", "money_pcb"));
-
-        return List.of(s1, s2, s3);
+        return new SettingPropertiesDTO("1", List.of("camera", "speaker", "pcb"));
     }
 
 

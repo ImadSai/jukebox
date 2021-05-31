@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -42,11 +41,10 @@ class SettingsApiTests {
 
         mockWebServer.enqueue(mockResponse);
 
-        List<SettingPropertiesDTO> result = settingsApi.getAllSettings();
+        SettingPropertiesDTO result = settingsApi.getSettingsById("1");
 
-        assertEquals(1, result.size());
-        assertEquals("1", result.get(0).getId());
-        assertEquals(2, result.get(0).getRequires().size());
+        assertEquals("1", result.getId());
+        assertEquals(2, result.getRequires().size());
     }
 
     /**
@@ -63,30 +61,13 @@ class SettingsApiTests {
         mockWebServer.enqueue(mockResponse);
 
         Exception exception = assertThrows(WebClientCustomException.class, () -> {
-            settingsApi.getAllSettings();
+            settingsApi.getSettingsById("1");
         });
 
         String expectedMessage = "Error Settings Service";
         String actualMessage = exception.getMessage();
 
         assertEquals(actualMessage, expectedMessage);
-    }
-
-    /**
-     * getAllSettings  ( Empty DataBase )
-     */
-    @Test
-    void getAllSettingsEmptyDataTest() {
-
-        MockResponse mockResponse = new MockResponse()
-                .addHeader("Content-Type", "application/json; charset=utf-8")
-                .setBody("{\"settings\": [  ] }");
-
-        mockWebServer.enqueue(mockResponse);
-
-        List<SettingPropertiesDTO> result = settingsApi.getAllSettings();
-
-        assertEquals(0, result.size());
     }
 
 }
