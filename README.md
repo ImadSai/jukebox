@@ -84,3 +84,13 @@ Json format :
     {
         "status": "UP"
     }
+
+# Stress Test Results 📊
+
+<div style="text-align:center">
+    <img src=".github/stress_test_result/stress-test-part1.png" alt="drawing" width="800"/>
+</div>
+
+<div style="text-align:center">
+    <img src=".github/stress_test_result/stress-test-part2.png" alt="drawing" width="800"/>
+</div>
