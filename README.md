@@ -87,6 +87,12 @@ Json format :
 
 # Stress Test Results 📊
 
+### 🗄 Server Config (On-Premise) :
+
+- OS  : Ubuntu Server 20.04
+- CPU : i5-4460
+- RAM : 12Go
+
 <div style="text-align:center">
     <img src=".github/stress_test_result/stress-test-part1.png" alt="drawing" width="800"/>
 </div>
