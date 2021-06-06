@@ -63,7 +63,7 @@ jobs:
     
     # Generate Deployment Package
     - name: Generate deployment package
-      run: zip -r deploy.zip deployDirectory
+      run: zip -r deploy.zip Dockerfile target
       
     # Deploy   
     - name: Deploy to EB
