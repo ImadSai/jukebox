@@ -69,4 +69,5 @@ jobs:
         environment_name: Jukeboxconfig-env
         version_label: 1
         region: eu-west-3
+        use_existing_version_if_available: true
         deployment_package: deploy.zip
