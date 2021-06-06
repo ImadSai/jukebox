@@ -34,7 +34,7 @@ jobs:
     - name : Save Package and Dockerfile
       run: |
         mkdir deployDirectory 
-        cp dockerfile deployDirectory 
+        cp Dockerfile deployDirectory 
         cp target/jukeboxSettings-*.jar deployDirectory/target 
     
     # Upload the Artifact
