@@ -54,12 +54,6 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         name: my-artifact
-        
-    # Check Artifact Files
-    - name : Check Artifact Files
-      run: |
-        ls
-        ls deployDirectory
     
     # Generate Deployment Package
     - name: Generate deployment package
