@@ -1,0 +1,16 @@
+steps:
+
+  # Test
+  - name: maven:3-jdk-11
+    entrypoint: mvn
+    args: [ 'test' ]
+
+  # Package
+  - name: maven:3-jdk-11
+    entrypoint: mvn
+    args: [ 'package', '-DskipTests' ]
+
+  # Create Image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/jukebox', '.' ]
+    images: [ 'gcr.io/$PROJECT_ID/mygcpcloudbuildplanet' ]
