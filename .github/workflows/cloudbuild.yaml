@@ -13,4 +13,4 @@ steps:
   # Create Image
   - name: 'gcr.io/cloud-builders/docker'
     args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/jukebox', '.' ]
-    images: [ 'gcr.io/$PROJECT_ID/mygcpcloudbuildplanet' ]
+  images: [ 'gcr.io/$PROJECT_ID/mygcpcloudbuildplanet' ]
