@@ -19,4 +19,4 @@ steps:
     wait_for: [ 'package' ]
 
 images:
-  - 'gcr.io/$PROJECT_ID/mygcpcloudbuildplanet'
+  - 'gcr.io/$PROJECT_ID/jukebox'
