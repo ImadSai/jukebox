@@ -91,7 +91,7 @@ Json format :
 
 # Stress Test Results 📊
 
-### 🗄 Server Config (On-Premise) :
+###  🗄 Server Config (On-Premise) :
 
 - OS  : Ubuntu Server 20.04
 - CPU : i5-4460
