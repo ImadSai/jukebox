@@ -93,7 +93,7 @@ jobs:
       - name: Move Jar to right directory
         run: |
           ls
-          unzip artifact.zip
+          unzip artifact
           mv juckboxSettings-*.jar target/
       
       # Login to Docker Hub
