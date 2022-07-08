@@ -72,7 +72,7 @@ jobs:
       - name: Upload JAR
         uses: actions/upload-artifact@v2
         with:
-          name: artifact
+          name: juckboxSettings.jar
           path: target/*.jar
   
   # Publish to Docker Hub job
@@ -93,7 +93,7 @@ jobs:
       - name: Move Jar to right directory
         run: |
           ls
-          ls target/
+          mv juckboxSettings.jar target/
       
       # Login to Docker Hub
       - name: Log in to Docker Hub
