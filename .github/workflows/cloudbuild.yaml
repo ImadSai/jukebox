@@ -108,3 +108,13 @@ jobs:
       # Build project
       - name: Build project
         run: mvn -B package -DskipTests --file pom.xml
+
+      # Upload JAR
+      - name: Upload JAR
+        #This uploads artifacts from your workflow allowing you to share data between jobs and store data once a workflow is complete.
+        uses: actions/upload-artifact@v2
+        with:
+          #Set artifact name
+          name: artifact
+          #From this path
+          path: target/jukeboxSettings-1.0.0.jar
