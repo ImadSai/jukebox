@@ -111,12 +111,9 @@ jobs:
 
       # Upload JAR
       - name: Upload JAR
-        #This uploads artifacts from your workflow allowing you to share data between jobs and store data once a workflow is complete.
         uses: actions/upload-artifact@v2
         with:
-          #Set artifact name
-          name: juckboxSettings.jar
-          #From this path
+          name: artifact
           path: target/juckboxSettings.jar
   
   # Publish to Docker Hub job
@@ -133,7 +130,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: juckboxSettings.jar
+          name: artifact
       
       # Move JAR to the right Directory
       - name: Move Jar to right directory
