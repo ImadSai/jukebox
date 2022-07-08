@@ -1,6 +1,9 @@
 # Jukebox Settings API
 
-![Build Status](https://github.com/ImadSai/jukebox/actions/workflows/maven.yml/badge.svg?branch=main)   ![version](https://img.shields.io/badge/version-1.0.0-blue)
+![Build Status](https://github.com/ImadSai/jukebox/actions/workflows/cloudbuild.yaml/badge.svg?branch=main)   ![version](https://img.shields.io/badge/version-1.0.0-blue)
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ImadSai_jukebox&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ImadSai_jukebox)
+
 
 Web application to remote control Jukebox settings.  
 Depending on what components (hardware modules) a jukebox has, it may or may not support a setting.
