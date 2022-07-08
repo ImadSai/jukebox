@@ -5,7 +5,7 @@ FROM openjdk:12-jdk-alpine
 WORKDIR /usr/app
 
 # Copy the jar in app folder
-COPY target/jukeboxSettings-*.jar /usr/app/juckboxSettings.jar
+COPY target/jukeboxSettings.jar /usr/app/juckboxSettings.jar
 
 # We expose only the 8080 port
 EXPOSE 8080

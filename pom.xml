@@ -95,6 +95,7 @@
     </dependencies>
 
     <build>
+        <finalName>jukeboxSettings</finalName>
         <plugins>
 
             <!-- Spring Maven Plugin -->
