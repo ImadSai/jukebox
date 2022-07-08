@@ -107,14 +107,14 @@ jobs:
       
       # Build project
       - name: Build project
-        run: mvn -B package -DskipTests --file pom.xml
+        run: mvn -B package -DskipTests
 
       # Upload JAR
       - name: Upload JAR
         uses: actions/upload-artifact@v2
         with:
           name: artifact
-          path: target/juckboxSettings.jar
+          path: target/jukeboxSettings-*.jar
   
   # Publish to Docker Hub job
   build-and-push-image:
@@ -134,7 +134,7 @@ jobs:
       
       # Move JAR to the right Directory
       - name: Move Jar to right directory
-        run: cp juckboxSettings.jar target/
+        run: cp juckboxSettings-*.jar target/
       
       # Login to Docker Hub
       - name: Log in to Docker Hub
