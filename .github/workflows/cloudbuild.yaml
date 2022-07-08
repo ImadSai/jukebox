@@ -94,7 +94,9 @@ jobs:
       
       # Move JAR to the right Directory
       - name: Move Jar to right directory
-        run: cp juckboxSettings-*.jar target/
+        run: |
+          ls
+          cp juckboxSettings-*.jar target/
       
       # Login to Docker Hub
       - name: Log in to Docker Hub
