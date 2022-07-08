@@ -93,8 +93,9 @@ jobs:
       - name: Move Jar to right directory
         run: |
           ls
+          mkdir target
           ls artifact/
-          mv artifact/juckboxSettings-*.jar target/
+          mv artifact/jukeboxSettings-*.jar target/
       
       # Login to Docker Hub
       - name: Log in to Docker Hub
