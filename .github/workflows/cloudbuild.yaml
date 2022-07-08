@@ -133,7 +133,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: buildResult
+          name: juckboxSettings.jar
       
       # Move JAR to the right Directory
       - name: Move Jar to right directory
