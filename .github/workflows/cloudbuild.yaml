@@ -73,7 +73,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: artifact
-          path: target/jukeboxSettings-*.jar
+          path: target/*.jar
   
   # Publish to Docker Hub job
   build-and-push-image:
@@ -88,9 +88,6 @@ jobs:
       # Upload JAR
       - name: Download artifact
         uses: actions/download-artifact@v3
-        with:
-          name: artifact
-          path: target/jukeboxSettings-*.jar
       
       # Move JAR to the right Directory
       - name: Move Jar to right directory
@@ -112,4 +109,4 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/juckboxSettings:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/juckboxSettings:latest
