@@ -41,7 +41,7 @@ jobs:
   # Build's job
   build:
     name: Build Project
-    needs: sonar
+    needs: tests
     runs-on: ubuntu-latest
 
     # Job's steps
