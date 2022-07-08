@@ -26,6 +26,8 @@
         <springfox.swagger.version>2.9.2</springfox.swagger.version>
         <springfox.swaggerui.version>2.9.2</springfox.swaggerui.version>
         <jacoco.version>0.8.7</jacoco.version>
+        <sonar.organization>imadsai</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>
@@ -89,12 +91,6 @@
             <version>${mockwebserver.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- Sonar Cloud  -->
-        <properties>
-            <sonar.organization>imadsai</sonar.organization>
-            <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        </properties>
 
     </dependencies>
 
