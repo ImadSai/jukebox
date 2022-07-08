@@ -72,7 +72,7 @@ jobs:
       - name: Upload JAR
         uses: actions/upload-artifact@v2
         with:
-          name: juckboxSettings.jar
+          name: artifact
           path: target/*.jar
   
   # Publish to Docker Hub job
@@ -89,11 +89,12 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
       
-      # Move JAR to the right Directory
+      # Unzip artifact and move JAR to the right Directory
       - name: Move Jar to right directory
         run: |
           ls
-          mv juckboxSettings.jar target/
+          unzip artifact.zip
+          mv juckboxSettings-*.jar target/
       
       # Login to Docker Hub
       - name: Log in to Docker Hub
@@ -109,4 +110,4 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/juckboxSettings:latest
+          tags: imadsa/juckboxSettings:latest
