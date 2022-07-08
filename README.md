@@ -2,7 +2,7 @@
 
 ![Build Status](https://github.com/ImadSai/jukebox/actions/workflows/cloudbuild.yaml/badge.svg?branch=main)   ![version](https://img.shields.io/badge/version-1.0.0-blue)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ImadSai_jukebox&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ImadSai_jukebox)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=ImadSai_jukebox&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=ImadSai_jukebox)
 
 
 Web application to remote control Jukebox settings.  
