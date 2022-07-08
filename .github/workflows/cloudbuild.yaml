@@ -111,4 +111,4 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: imadsa/juckboxSettings:latest
+          tags: imadsa/juckboxsettings:latest
