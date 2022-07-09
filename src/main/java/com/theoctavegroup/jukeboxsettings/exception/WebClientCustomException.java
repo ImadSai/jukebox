@@ -7,7 +7,7 @@ import org.springframework.web.reactive.function.client.WebClientException;
 @Getter
 public class WebClientCustomException extends WebClientException {
 
-    private HttpStatus status;
+    private final HttpStatus status;
 
     public WebClientCustomException(String msg, HttpStatus status) {
         super(msg);
