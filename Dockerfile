@@ -1,5 +1,5 @@
-# Specifie the Image Used
-FROM openjdk:12-jdk-alpine
+# Specifie the Image Usedopenjdk:12-jdk-alpine
+FROM openjdk:11.0.15-jre-slim-buster as build
 
 # Define the working directory
 WORKDIR /usr/app
