@@ -161,7 +161,6 @@ jobs:
 
       - uses: azure/webapps-deploy@v2
         with:
-          app-name: 'jukebox'
+          app-name: 'jukeboxsetting'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          slot-name: 'Production'
           images: 'imadsa/juckboxsettings:latest'
