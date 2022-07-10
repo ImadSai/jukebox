@@ -151,3 +151,16 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: imadsa/juckboxsettings:latest
+
+  # Deploy to Azure
+  deploy-to-azure:
+    name: Deploy to Azure App Service
+    needs: build-and-push-image
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'jukebox'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          images: 'imadsa/juckboxsettings:latest'
