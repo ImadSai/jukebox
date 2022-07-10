@@ -38,10 +38,51 @@ jobs:
       - name: Run Tests
         run: mvn -B test
 
+  # SonarCloud analysis job
+  sonar:
+    name: SonarCloud analysis
+    needs: tests
+    runs-on: ubuntu-latest
+
+    # Job's steps
+    steps:
+
+      # Check-out
+      - uses: actions/checkout@v2
+
+      # Set up JDK 11
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+
+      # Set up Maven cache
+      - name: Cache Maven packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      # Set up SonarCloud cache
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      # Analyze project
+      - name: Analyze with SonarCloud
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ImadSai_jukebox
+
   # Build's job
   build:
     name: Build Project
-    needs: tests
+    needs: sonar
     runs-on: ubuntu-latest
 
     # Job's steps
@@ -101,12 +142,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-
-      # Get the Build version
-      - name: Get the Build version
-        run: |
-          ls
-          echo "Hello World"
       
       # Build and Publish Image
       - name: Build and push Docker image
