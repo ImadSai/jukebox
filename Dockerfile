@@ -8,7 +8,7 @@ WORKDIR /usr/app
 COPY target/jukeboxSettings-*.jar /usr/app/juckboxSettings.jar
 
 # We expose only the 8080 port
-EXPOSE 8080
+EXPOSE 80
 
 # Command to launch the app
 CMD ["java", "-jar", "/usr/app/juckboxSettings.jar"]
